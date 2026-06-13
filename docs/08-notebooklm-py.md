@@ -18,14 +18,39 @@
 - 不熟 Python、terminal、OAuth 或 CLI 的使用者。
 - 要處理學生個資或敏感資料的人。
 
-## 可能用途
+## 三種主要用法
 
-| 用途 | 說明 |
+| 用法 | 適合誰 | 說明 |
 |---|---|
-| CLI 查詢 | 在 terminal 中查 NotebookLM 內容 |
-| Python API | 寫腳本自動化 NotebookLM 查詢 |
-| Agent skill | 讓 agent 用固定流程查 NotebookLM |
-| MCP server | 讓支援 MCP 的 AI 工具把 NotebookLM 當外部資料來源 |
+| CLI | 會用 terminal 的老師或助教 | 在 terminal 中建立 notebook、加 source、問答、產生 artifacts |
+| Skill | 使用 Claude Code / Codex 類 agent 的人 | 讓 agent 知道如何用 NotebookLM-py 完成固定流程 |
+| MCP server | 想把 NotebookLM 接進 agent 工具的人 | 讓 Claude Code、Claude Desktop、Cursor、Windsurf 等 MCP client 直接呼叫 NotebookLM 工具 |
+
+## 快速入口
+
+CLI 起手：
+
+```bash
+uv tool install "notebooklm-py[browser]"
+notebooklm login
+notebooklm auth check --test --json
+```
+
+MCP 起手：
+
+```bash
+pip install "notebooklm-py[mcp]"
+notebooklm login
+notebooklm mcp install claude-code
+```
+
+也可用 `uvx` 啟動 MCP server：
+
+```bash
+uvx --from "notebooklm-py[mcp]" notebooklm-mcp --help
+```
+
+更多 MCP 細節請看 [MCP 怎麼接](07-mcp.md#例子用-notebooklm-py-把-notebooklm-接進-agent)。
 
 ## 建議學習順序
 
@@ -44,9 +69,22 @@
 
 NotebookLM-py 屬於第二條路。它不是必要起點，但適合想把教學資料查詢流程固定下來的人。
 
+例如一個進階教學 workflow 可以是：
+
+```text
+NotebookLM notebook 保存講義與考古題
+NotebookLM-py MCP 讓 agent 查 notebook
+agent 根據查詢結果產生小考草稿
+Git 保存這次教材修改
+老師人工檢查解答與題目範圍
+```
+
+這才是投影片中「給目錄」「快取索引」「agent 做事」「Git 存檔點」合在一起的版本。
+
 ## 安全提醒
 
 - 不要用非官方工具處理學生個資或成績。
 - 不要把高權限帳號拿來做測試。
 - 不要把 OAuth token、cookie、API key commit 到 GitHub。
 - 若用 MCP server，先確認權限範圍與可執行操作。
+- 先從 read-only 問答開始，不要第一天就讓 agent 刪 notebook、source 或 note。
