@@ -172,4 +172,4 @@ NotebookLM-py MCP guide 目前列出 25 個工具，範圍包括：
 
 ## 初學者建議
 
-第一天不要急著接 MCP。先把工作守則與 NotebookLM 網頁版用熟，再挑一個「會重複、低風險」的流程接 MCP。NotebookLM-py MCP 是進階路線，不是零門檻第一步。
+第一天不要急著接 MCP。先把 `CLAUDE.md` / `AGENTS.md`、Git 存檔點與 NotebookLM 網頁版用熟，再挑一個「會重複、低風險」的流程接 MCP。NotebookLM-py MCP 是進階路線，不是零門檻第一步。
