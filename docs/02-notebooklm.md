@@ -70,7 +70,7 @@
 
 ## 跟 agent 的分工
 
-| 任務 | NotebookLM | Agent CLI |
+| 任務 | NotebookLM | 桌面版 agent / CLI |
 |---|---|---|
 | 根據講義問答 | 很適合 | 可以，但需要先讀檔 |
 | 產生學習指南 | 很適合 | 可以 |

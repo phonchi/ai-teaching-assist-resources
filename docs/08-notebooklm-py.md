@@ -2,13 +2,13 @@
 
 [teng-lin/notebooklm-py](https://github.com/teng-lin/notebooklm-py) 是一個非官方 NotebookLM Python API / CLI / agent skill / MCP server 專案。它可以把 NotebookLM 從網頁操作延伸到程式化、自動化與 agent 整合。
 
-> 注意：這不是 Google 官方 API。NotebookLM 內部機制若改變，這類非官方工具可能失效。初學者先用 NotebookLM 網頁版即可；NotebookLM-py 是熟悉桌面版 agent 與基本安全流程後的進階路線。
+> 注意：這不是 Google 官方 API。NotebookLM 內部機制若改變，這類非官方工具可能失效。初學者先用 NotebookLM 網頁版即可；NotebookLM-py 是熟悉桌面版 agent 與基本安全流程後才評估的進階路線。
 
 ## 它適合誰？
 
 - 已經熟悉 NotebookLM 網頁版。
-- 想批次查詢 notebook。
-- 想從 CLI 或 Python 操作 NotebookLM。
+- 已經有會重複的 NotebookLM 查詢流程。
+- 願意處理 CLI、Python、登入與權限等設定細節。
 - 想把 NotebookLM 接到 Claude Code、Codex 或其他 agent workflow。
 - 想用 MCP server 讓 agent 查 NotebookLM 中的資料。
 
@@ -22,11 +22,23 @@
 
 | 用法 | 適合誰 | 說明 |
 |---|---|---|
-| CLI | 會用 terminal 的老師或助教 | 在 terminal 中建立 notebook、加 source、問答、產生 artifacts |
-| Skill | 使用 Claude Code / Codex 類 agent 的人 | 讓 agent 知道如何用 NotebookLM-py 完成固定流程 |
-| MCP server | 想把 NotebookLM 接進 agent 工具的人 | 讓 Claude Code、Claude Desktop、Cursor、Windsurf 等 MCP client 直接呼叫 NotebookLM 工具 |
+| CLI | 熟悉 terminal 後再用 | 在 terminal 中建立 notebook、加 source、問答、產生 artifacts |
+| Skill | 主 agent 草擬、老師審內容 | 讓 agent 知道如何用 NotebookLM-py 完成固定流程 |
+| MCP server | 進階設定 | 讓 Claude Code、Claude Desktop、Cursor、Windsurf 等 MCP client 直接呼叫 NotebookLM 工具 |
 
-## 快速入口
+## 老師實際該怎麼說
+
+一般老師不用從這一頁開始下指令。可以先對主 agent 說：
+
+```text
+我已經熟悉 NotebookLM 網頁版，想把某個測試 notebook 接進教材產生流程。
+請先評估 NotebookLM-py 是否適合，列出需要設定的項目、權限風險、以及替代方案。
+不要直接連正式課程資料。
+```
+
+## 進階設定參考
+
+這段是主 agent 評估 NotebookLM-py 後才看的技術參考，不是要求第一次工作坊的學員照著輸入。老師的工作是先確認目標、測試資料與權限風險。
 
 CLI 起手：
 
@@ -50,7 +62,7 @@ notebooklm mcp install claude-code
 uvx --from "notebooklm-py[mcp]" notebooklm-mcp --help
 ```
 
-若採用 `uvx`，也可以直接執行 MCP 設定指令：
+若主 agent 判斷採用 `uvx`，也可以評估下面的 MCP 設定指令：
 
 ```bash
 uvx --from "notebooklm-py[mcp]" notebooklm mcp install claude-code
@@ -60,13 +72,14 @@ uvx --from "notebooklm-py[mcp]" notebooklm mcp install claude-code
 
 更多 MCP 細節請看 [MCP 怎麼接](07-mcp.md#例子用-notebooklm-py-把-notebooklm-接進-agent)。
 
-## 建議學習順序
+## 建議導入順序
 
 1. 先完成 [NotebookLM 網頁版教學](02-notebooklm.md)。
 2. 建立一個不含敏感資料的測試 notebook。
-3. 閱讀 NotebookLM-py README：<https://github.com/teng-lin/notebooklm-py>。
-4. 只在測試 notebook 上嘗試 CLI 或 Python。
-5. 確認登入、權限、輸出都符合預期後，再考慮接入 Codex app、Claude Code desktop app 或其他 agent。
+3. 請主 agent 評估是否真的需要 NotebookLM-py。
+4. 若需要，再閱讀 NotebookLM-py README：<https://github.com/teng-lin/notebooklm-py>。
+5. 只在測試 notebook 上嘗試 CLI 或 Python。
+6. 確認登入、權限、輸出都符合預期後，再考慮接入 Codex app、Claude Code desktop app 或其他 agent。
 
 ## 跟投影片「快取索引」的關係
 

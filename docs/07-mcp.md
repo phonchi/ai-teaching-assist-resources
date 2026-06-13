@@ -4,11 +4,11 @@ MCP 是 Model Context Protocol 的縮寫。簡單說，它是一個讓 AI 工具
 
 官方介紹：<https://modelcontextprotocol.io/docs/getting-started/intro>
 
-> 進階提醒：MCP 不是第一天要接的東西。新手先用 NotebookLM 網頁版、GitHub Desktop、Codex app 或 Claude Code desktop app 完成一輪安全流程，再挑一個低風險、會重複的資料來源來接。
+> 進階提醒：MCP 不是第一天要接的東西，也不是每位老師要自己設定。新手先用 NotebookLM 網頁版、GitHub Desktop、Codex app 或 Claude Code desktop app 完成一輪安全流程；等真的有重複流程，再請主 agent 先評估是否需要接 MCP。
 
 ## 用一句話理解
 
-如果 agent 是「會做事的助教」，MCP 就像是幫助教接上工具的插座。接上後，AI 才能透過受控的工具介面讀某個資料庫、查某個服務、操作某個工具；真正的安全仍取決於 server、client 權限與你的設定。
+如果 agent 是「會做事的工具」，MCP 就像是幫 agent 接上工具的插座。接上後，AI 才能透過受控的工具介面讀某個資料庫、查某個服務、操作某個工具；真正的安全仍取決於 server、client 權限與你的設定。
 
 在這場投影片脈絡中，MCP 的實用例子是：把 NotebookLM、GitHub、Google Drive、Notion、Zotero 這類外部工具接進 agent，讓它不只會聊天，而是能根據你的課程資料做事。
 
@@ -24,7 +24,7 @@ MCP 是 Model Context Protocol 的縮寫。簡單說，它是一個讓 AI 工具
 
 ## 什麼時候需要 MCP？
 
-需要：
+老師需要知道「可能需要 MCP」的情境：
 
 - 你想讓 AI 讀取某個固定資料來源。
 - 你想讓 AI 在 NotebookLM、GitHub、Google Drive 等工具中操作。
@@ -36,14 +36,26 @@ MCP 是 Model Context Protocol 的縮寫。簡單說，它是一個讓 AI 工具
 - 只是整理一份短文。
 - 還沒確定這個流程會重複使用。
 
-## 概念流程
+## 老師實際該怎麼說
 
-1. 找到你要接的服務，例如 NotebookLM 或 GitHub。
-2. 找現成 MCP server，優先用官方或社群成熟專案。
-3. 在你的 AI 工具中註冊 MCP server。
-4. 給予最小必要權限。
-5. 用低風險資料測試。
-6. 確認它會問、會拒絕危險操作、會回報錯誤。
+一般老師不用自己找 server 或寫設定。可以先對主 agent 說：
+
+```text
+我已經把講義放在 NotebookLM。
+我希望之後產生小考或學習指南時，agent 可以查這個 notebook。
+請先評估是否需要 MCP；如果需要，請列出需要設定的項目與安全風險，不要直接連接我的正式資料。
+```
+
+## 主 agent 評估 MCP 時會檢查什麼
+
+這一段不是要求老師自己設定。當你請主 agent 評估 MCP 時，它應該先檢查：
+
+1. 要接的是哪個服務，例如 NotebookLM 或 GitHub。
+2. 是否有官方或社群成熟的 MCP server。
+3. 你的 AI 工具是否支援這個 MCP server。
+4. 需要哪些最小必要權限。
+5. 是否能先用低風險資料測試。
+6. 是否會問、會拒絕危險操作、會回報錯誤。
 
 ## 例子：用 NotebookLM-py 把 NotebookLM 接進 agent
 
@@ -62,11 +74,13 @@ MCP 是 Model Context Protocol 的縮寫。簡單說，它是一個讓 AI 工具
 - 還不熟 terminal、Python、OAuth 或 MCP。
 - notebook 裡有學生個資、成績、未授權教材。
 
-## NotebookLM-py MCP 最小流程
+## NotebookLM-py MCP 進階設定範例
 
 > 注意：NotebookLM-py 是非官方工具，使用未公開 Google API，可能因 Google 改動而失效。它的 MCP server 目前也是 experimental / preview，工具名稱、參數與輸出格式可能在版本間改變。請先用測試 notebook。
 
-先確認你有 Python 環境與 `uv`。如果使用下面的 `uvx` 或自動寫入 MCP block，電腦上需要可執行的 `uv`。
+以下是主 agent 評估後才看的技術參考，不是第一天操作步驟。一般老師知道「可以請主 agent 評估是否把 NotebookLM 接進工作流」即可，不必輸入這些指令。
+
+主 agent 若判斷需要繼續，會先確認電腦有 Python 環境與 `uv`。如果使用下面的 `uvx` 或自動寫入 MCP block，電腦上需要可執行的 `uv`。
 
 ### 1. 安裝 MCP extra
 
@@ -174,4 +188,4 @@ NotebookLM-py MCP guide 目前列出 25 個工具，範圍包括：
 
 ## 初學者建議
 
-第一天不要急著接 MCP。先把 NotebookLM 網頁版、GitHub Desktop 存檔點、Codex app / Claude Code desktop app 的只讀流程用熟；第二輪再整理 `CLAUDE.md` / `AGENTS.md`；最後才挑一個「會重複、低風險」的流程接 MCP。NotebookLM-py MCP 是進階路線，不是零門檻第一步。
+第一天不要急著接 MCP。先把 NotebookLM 網頁版、GitHub Desktop 存檔點、Codex app / Claude Code desktop app 的只讀流程用熟；第二輪再請主 agent 草擬 `CLAUDE.md` / `AGENTS.md`；最後才挑一個「會重複、低風險」的流程，請主 agent 評估是否接 MCP。NotebookLM-py MCP 是進階路線，不是零門檻第一步。
