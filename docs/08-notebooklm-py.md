@@ -21,7 +21,7 @@
 ## 三種主要用法
 
 | 用法 | 適合誰 | 說明 |
-|---|---|
+|---|---|---|
 | CLI | 會用 terminal 的老師或助教 | 在 terminal 中建立 notebook、加 source、問答、產生 artifacts |
 | Skill | 使用 Claude Code / Codex 類 agent 的人 | 讓 agent 知道如何用 NotebookLM-py 完成固定流程 |
 | MCP server | 想把 NotebookLM 接進 agent 工具的人 | 讓 Claude Code、Claude Desktop、Cursor、Windsurf 等 MCP client 直接呼叫 NotebookLM 工具 |
@@ -49,6 +49,14 @@ notebooklm mcp install claude-code
 ```bash
 uvx --from "notebooklm-py[mcp]" notebooklm-mcp --help
 ```
+
+若採用 `uvx`，也可以直接執行 MCP 設定指令：
+
+```bash
+uvx --from "notebooklm-py[mcp]" notebooklm mcp install claude-code
+```
+
+`uvx` 與自動產生的 MCP 設定都需要電腦上有 `uv`。多 Google 帳號使用者請先確認 NotebookLM-py 的 active profile，避免 agent 接到個人帳號或錯誤課程資料。
 
 更多 MCP 細節請看 [MCP 怎麼接](07-mcp.md#例子用-notebooklm-py-把-notebooklm-接進-agent)。
 
@@ -85,6 +93,6 @@ Git 保存這次教材修改
 
 - 不要用非官方工具處理學生個資或成績。
 - 不要把高權限帳號拿來做測試。
-- 不要把 OAuth token、cookie、API key commit 到 GitHub。
+- 不要把 OAuth token、cookie、API key commit 到 GitHub。尤其不要 commit `~/.notebooklm/` 或 `storage_state.json`，那裡可能含有 Google session cookies。
 - 若用 MCP server，先確認權限範圍與可執行操作。
 - 先從 read-only 問答開始，不要第一天就讓 agent 刪 notebook、source 或 note。

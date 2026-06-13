@@ -8,13 +8,16 @@
 
 | 你的狀況 | 建議路線 |
 |---|---|
+| 第一次來，想照順序做 | 先看 [快速開始](docs/00-快速開始.md) |
 | 完全不寫程式，只想讓學生能自學 | 先看 [NotebookLM 教學](docs/02-notebooklm.md) |
 | 想讓 agent 幫忙改教材，但怕改壞 | 先看 [Git 與 GitHub](docs/04-git-github.md) |
 | 想叫 AI 幫你讀檔、改檔、跑指令 | 先看 [Agent CLI 工具](docs/03-agent-cli.md) |
 | 想讓 AI 每次都遵守你的教學慣例 | 先看 [工作守則與交辦模板](docs/05-工作守則與交辦模板.md) |
 | 已經有固定流程，想封裝成工具箱 | 先看 [Skill 怎麼寫](docs/06-skills.md)、[MCP 怎麼接](docs/07-mcp.md) 與 [Subagent 怎麼用](docs/11-subagents.md) |
 
-## 30 分鐘快速上手：三條都做一小步
+## 30 分鐘快速上手：先做一輪最小流程
+
+完整分段版請看 [00 快速開始](docs/00-快速開始.md)。主頁先抓最小動線：
 
 1. 開一個 Google 帳號，進入 [NotebookLM](https://notebooklm.google.com/)。
 2. 建立一個 notebook，上傳一份你可以分享的講義、簡報或 PDF。
@@ -58,7 +61,7 @@
 |---|---|---|
 | Claude Code Skills | <https://code.claude.com/docs/en/skills> | 把常用教學流程封裝成可重複使用的工作手冊 |
 | Codex Skills | <https://developers.openai.com/codex/skills> | 在 Codex 裡封裝可觸發的操作流程 |
-| MCP | <https://modelcontextprotocol.io/docs/getting-started/intro> | 讓 AI 工具接外部資料與服務的標準接口 |
+| MCP | <https://modelcontextprotocol.io/docs/getting-started/intro> | 讓 AI 工具接外部資料與服務的協定介面 |
 | Subagent | [subagent 教學](docs/11-subagents.md) | 把大搜尋、審查、對照檢查交給獨立 context 的助理 |
 | NotebookLM-py | <https://github.com/teng-lin/notebooklm-py> | 非官方 NotebookLM Python API / CLI / MCP / Skill，適合進階自動化 |
 | awesome-agentic-ai-zh | <https://github.com/WenyuChiou/awesome-agentic-ai-zh> | 中文 AI agent 學習地圖與資源庫 |
