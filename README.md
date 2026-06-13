@@ -1,6 +1,6 @@
 # AI 教學助攻課後資源
 
-這個 repo 是「AI 教學助攻：備課與教材設計經驗談」的課後資源頁。投影片裡講了很多概念：agent、NotebookLM、Git、工作守則、Skill、MCP、subagent、把關流程。這裡把它們整理成可以直接點開、下載、照做的教學入口。
+這個 repo 是「AI 教學助攻：備課與教材設計經驗談」的課後資源頁。投影片裡講了很多概念：agent、NotebookLM、Git、工作守則、Skill、MCP、subagent、把關流程與 insights 回顧。這裡把它們整理成可以直接點開、下載、照做的教學入口。
 
 > 核心原則：先讓資料有邊界，讓 agent 動手前有規格，讓每次教材修改都有存檔點。不要一開始就追求全自動。
 
@@ -13,6 +13,7 @@
 | 想讓 agent 幫忙改教材，但怕改壞 | 先看 [Git 與 GitHub](docs/04-git-github.md) |
 | 想叫 AI 幫你讀檔、改檔、跑指令 | 先看 [Agent CLI 工具](docs/03-agent-cli.md) |
 | 想讓 AI 每次都遵守你的教學慣例 | 先看 [工作守則與交辦模板](docs/05-工作守則與交辦模板.md) |
+| 想知道自己怎麼越用越準 | 先看 [回顧用法與 insights](docs/05-工作守則與交辦模板.md#回顧用法與-insights) |
 | 已經有固定流程，想封裝成工具箱 | 先看 [Skill 怎麼寫](docs/06-skills.md)、[MCP 怎麼接](docs/07-mcp.md) 與 [Subagent 怎麼用](docs/11-subagents.md) |
 
 ## 30 分鐘快速上手：先做一輪最小流程
@@ -25,6 +26,7 @@
 4. 把本 repo 的 [工作守則模板](docs/05-工作守則與交辦模板.md) 複製到你常用的 AI 工具中，請它「動工前先反問我」。
 5. 建一個測試資料夾，放一份教材副本，讓 agent 先只讀不改，整理「可以改進的地方」。
 6. 用 Git 或 GitHub Desktop 存第一個版本，再讓 agent 改教材。改壞時，你有上一版可以回去。
+7. 完成後用 `/insights` 或 [回顧 prompt](docs/05-工作守則與交辦模板.md#回顧用法與-insights)，把這次交辦學到的規矩寫回工作守則。
 
 ## 工具總表
 
@@ -81,6 +83,7 @@
 | AI 接外部工具，包含接 NotebookLM | [MCP 怎麼接](docs/07-mcp.md) |
 | 請它派分身去查 | [Subagent 怎麼用](docs/11-subagents.md) |
 | 漂亮不等於正確 | [把關與安全](docs/09-把關與安全.md) |
+| `/insights` 與精進迴圈 | [工作守則與交辦模板](docs/05-工作守則與交辦模板.md#回顧用法與-insights) |
 | 投影片與公開範例 | [投影片與延伸資源](docs/10-投影片與延伸資源.md) |
 
 ## 重要安全提醒
