@@ -2,7 +2,7 @@
 
 [teng-lin/notebooklm-py](https://github.com/teng-lin/notebooklm-py) 是一個非官方 NotebookLM Python API / CLI / agent skill / MCP server 專案。它可以把 NotebookLM 從網頁操作延伸到程式化、自動化與 agent 整合。
 
-> 注意：這不是 Google 官方 API。NotebookLM 內部機制若改變，這類非官方工具可能失效。初學者先用 NotebookLM 網頁版即可。
+> 注意：這不是 Google 官方 API。NotebookLM 內部機制若改變，這類非官方工具可能失效。初學者先用 NotebookLM 網頁版即可；NotebookLM-py 是熟悉桌面版 agent 與基本安全流程後的進階路線。
 
 ## 它適合誰？
 
@@ -66,7 +66,7 @@ uvx --from "notebooklm-py[mcp]" notebooklm mcp install claude-code
 2. 建立一個不含敏感資料的測試 notebook。
 3. 閱讀 NotebookLM-py README：<https://github.com/teng-lin/notebooklm-py>。
 4. 只在測試 notebook 上嘗試 CLI 或 Python。
-5. 確認登入、權限、輸出都符合預期後，再考慮接入 agent。
+5. 確認登入、權限、輸出都符合預期後，再考慮接入 Codex app、Claude Code desktop app 或其他 agent。
 
 ## 跟投影片「快取索引」的關係
 

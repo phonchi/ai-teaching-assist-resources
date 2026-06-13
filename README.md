@@ -1,8 +1,8 @@
 # AI 教學助攻課後資源
 
-這個 repo 是「AI 教學助攻：備課與教材設計經驗談」的課後資源頁。投影片裡講了很多概念：agent、NotebookLM、Git、工作區指令檔、Skill、MCP、subagent、把關流程與 insights 回顧。這裡把它們整理成可以直接點開、下載、照做的教學入口。
+這個 repo 是「AI 教學助攻：備課與教材設計經驗談」的課後資源頁。它假設多數學員只用過 ChatGPT、Claude.ai、NotebookLM 這類網頁版工具，所以先從零安裝或低安裝的流程開始，再慢慢走到 Codex app、Claude Code desktop app、Git、工作區指令檔、Skill、MCP、subagent、把關流程與 insights 回顧。
 
-> 核心原則：先讓教材工作區有規矩，讓 agent 進資料夾就讀得到 `CLAUDE.md` 或 `AGENTS.md`，再用 Git 建立存檔點。不要一開始就追求全自動。
+> 核心原則：先會問、會整理、會存檔，再讓桌面版 agent 只讀教材。熟悉後才讓 agent 小範圍修改，最後再談 CLI、MCP、Skill 或自動化。
 
 ## 先從哪裡開始？
 
@@ -10,9 +10,9 @@
 |---|---|
 | 第一次來，想照順序做 | 先看 [快速開始](docs/00-快速開始.md) |
 | 完全不寫程式，只想讓學生能自學 | 先看 [NotebookLM 教學](docs/02-notebooklm.md) |
+| 想從網頁版過渡到會讀檔的 agent | 先看 [Agent 桌面版與 CLI 工具](docs/03-agent-cli.md) |
 | 想讓 agent 幫忙改教材，但怕改壞 | 先看 [Git 與 GitHub](docs/04-git-github.md) |
-| 想叫 agent 幫你讀檔、改檔、跑指令 | 先看 [Agent CLI 工具](docs/03-agent-cli.md) |
-| 想讓 agent 每次都遵守你的教學慣例 | 先看 [工作區指令檔與交辦模板](docs/05-工作守則與交辦模板.md) |
+| 想讓 agent 每次都遵守你的教學慣例 | 熟悉基本任務後看 [工作區指令檔與交辦模板](docs/05-工作守則與交辦模板.md) |
 | 想知道自己怎麼越用越準 | 先看 [回顧用法與 insights](docs/05-工作守則與交辦模板.md#回顧用法與-insights) |
 | 已經遇到重複摩擦，想封裝成工具箱 | 先看 [Skill 怎麼和 agent 合作寫](docs/06-skills.md)、[MCP 怎麼接](docs/07-mcp.md) 與 [Subagent 怎麼用](docs/11-subagents.md) |
 
@@ -20,13 +20,13 @@
 
 完整分段版請看 [00 快速開始](docs/00-快速開始.md)。主頁先抓最小動線：
 
-1. 建一個測試教材資料夾或 Git repo，放一份可以練習的教材副本。
-2. 依你使用的 agent 建立 `CLAUDE.md` 或 `AGENTS.md`，把課程慣例、紅線、反問規則寫進去。
-3. 用 Git 或 GitHub Desktop 存第一個版本。改壞時，你有上一版可以回去。
-4. 讓 agent 先只讀不改，整理「教材目標、學生卡點、建議修改處、會改哪些檔案」。
-5. 再交付本次任務的目標、範圍、格式、限制、驗收標準。
-6. 修改後檢查 `git diff`，由老師決定是否 commit / push。
-7. 完成後用 `/insights` 或 [回顧 prompt](docs/05-工作守則與交辦模板.md#回顧用法與-insights)，把這次交辦學到的規矩回寫到 `CLAUDE.md` 或 `AGENTS.md`。
+1. 用 ChatGPT、Claude.ai 或 NotebookLM 網頁版，先整理一份教材或產生 3-5 題練習題。
+2. 用 GitHub Desktop 建立教材副本與第一個 commit。這是改壞時能回去的存檔點。
+3. 安裝或開啟 [Codex app](https://developers.openai.com/codex/app) 或 [Claude Code desktop app](https://code.claude.com/docs/en/overview)。
+4. 在桌面版 agent 中選教材資料夾，先交辦「只讀、整理、列計畫」，不要改檔。
+5. 確認它讀對後，才讓它小範圍修改一份副本，例如 README 或一小段講義。
+6. 用 GitHub Desktop 或 agent app 的 diff / review 畫面檢查修改，由老師決定是否 commit / push。
+7. 跑過幾次後，再把常見規矩寫成 `AGENTS.md` / `CLAUDE.md`，或用 `/insights` 整理可改進的交辦習慣。
 
 ## 工具總表
 
@@ -39,14 +39,15 @@
 | Gemini | <https://gemini.google.com/> | Google 生態整合、長文件問答、一般對話 |
 | NotebookLM | <https://notebooklm.google.com/> | 把講義、PDF、網址變成有來源引用的課程助教 |
 
-### 會動手的 Agent CLI
+### 會讀檔與改檔的桌面 agent
 
 | 工具 | 入口 | 用途 |
 |---|---|---|
-| Claude Code | <https://code.claude.com/docs/en/setup> | 讀檔、改檔、跑指令、subagent、Skill、MCP 生態完整 |
-| OpenAI Codex CLI | <https://developers.openai.com/codex/cli> | OpenAI 的本機 coding/agent CLI，可用 ChatGPT 帳號或 API key |
-| Gemini CLI | <https://github.com/google-gemini/gemini-cli> | Google 官方 Gemini 終端機工具，適合長 context 與 Google 生態使用者 |
-| OpenCode | <https://github.com/sst/opencode> | 不綁單一模型供應商的開源 agent CLI |
+| Codex app | <https://developers.openai.com/codex/app> | OpenAI 的桌面 agent 入口，可選本機 project folder、Local 模式、review diff 與使用 Git 功能 |
+| Claude Code desktop app | <https://code.claude.com/docs/en/overview> | Claude Code 的桌面入口，不熟 terminal 也能視覺化 review diff、開多個 session |
+| Claude Code CLI | <https://code.claude.com/docs/en/setup> | 進階：讀檔、改檔、跑指令、subagent、Skill、MCP 生態完整 |
+| Codex CLI | <https://developers.openai.com/codex/cli> | 進階：偏好 terminal、想用命令列交辦檔案任務的人 |
+| Gemini CLI | <https://github.com/google-gemini/gemini-cli> | 進階：Google 官方 Gemini 終端機工具，適合長 context 與 Google 生態使用者 |
 
 ### 版本控制與 agent 協作
 
@@ -73,12 +74,13 @@
 
 | 投影片概念 | 對應教學 |
 |---|---|
-| 工作守則寫進 `CLAUDE.md` / `AGENTS.md` | [工作區指令檔與交辦模板](docs/05-工作守則與交辦模板.md) |
+| 從 Chat 到 Agent，不要跳太快 | [快速開始](docs/00-快速開始.md)、[Agent 桌面版與 CLI 工具](docs/03-agent-cli.md) |
+| 工作守則寫進 `CLAUDE.md` / `AGENTS.md` | 熟悉幾次任務後看 [工作區指令檔與交辦模板](docs/05-工作守則與交辦模板.md) |
 | 別給願望，給規格 | [工作區指令檔與交辦模板](docs/05-工作守則與交辦模板.md) |
 | 讓它先反問你 | [工作區指令檔與交辦模板](docs/05-工作守則與交辦模板.md#讓-agent-先反問你) |
 | 給目錄，不要全文硬塞 | [NotebookLM 教學](docs/02-notebooklm.md) |
 | 快取索引 | [NotebookLM-py 與進階自動化](docs/08-notebooklm-py.md) |
-| Agent 會讀檔、改檔、跑程式 | [Agent CLI 工具](docs/03-agent-cli.md) |
+| Agent 會讀檔、改檔、跑程式 | [Agent 桌面版與 CLI 工具](docs/03-agent-cli.md) |
 | Git 是教材時光機，也是 agent 協作安全網 | [Git 與 GitHub](docs/04-git-github.md) |
 | 把反覆摩擦封裝成工具箱 | [Skill 怎麼和 agent 合作寫](docs/06-skills.md) |
 | Agent 接外部工具，包含接 NotebookLM | [MCP 怎麼接](docs/07-mcp.md) |

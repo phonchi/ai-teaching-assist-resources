@@ -1,6 +1,6 @@
-# 03 Agent CLI 工具
+# 03 Agent 桌面版與 CLI 工具
 
-Agent CLI 是「會動手」的 AI 助手。它不只回答你，還能讀檔、改檔、跑指令、檢查結果。投影片中的「會做事的助手」主要指這類工具。
+Agent 是「會動手」的 AI 助手。它不只回答你，還能讀檔、改檔、跑指令、檢查結果。對只用過網頁版 AI 的老師，建議先用 Codex app 或 Claude Code desktop app 這類桌面版入口，熟悉後再進到 CLI。
 
 投影片把 agent 拆成四個部分：
 
@@ -8,7 +8,7 @@ Agent CLI 是「會動手」的 AI 助手。它不只回答你，還能讀檔、
 |---|---|---|
 | 腦 | 模型負責推理與判斷 | 選一個可靠工具，不迷信單次輸出 |
 | 手 | 工具負責讀檔、改檔、跑程式、查資料 | 先在副本或 Git 存檔點後動工 |
-| 規矩 | 工作區指令檔與紅線 | 把課程慣例、格式、個資限制寫進 `CLAUDE.md` 或 `AGENTS.md` |
+| 規矩 | 工作區指令檔與紅線 | 熟悉基本流程後，再把課程慣例、格式、個資限制寫進 `CLAUDE.md` 或 `AGENTS.md` |
 | 迴圈 | 觀察 → 動手 → 驗證 → 修正 | 要求它列計畫、執行、檢查，不只產出漂亮文字 |
 
 ## 先知道差別
@@ -17,20 +17,22 @@ Agent CLI 是「會動手」的 AI 助手。它不只回答你，還能讀檔、
 |---|---|---|
 | 網頁聊天 | ChatGPT、Claude.ai、Gemini | 回答、改寫、草擬 |
 | 資料問答 | NotebookLM | 根據你上傳的來源回答 |
-| Agent CLI | Claude Code、Codex CLI、Gemini CLI | 讀檔、改檔、跑程式、驗證 |
+| 桌面版 agent | Codex app、Claude Code desktop app | 選本機資料夾、讀檔、改檔、看 diff / review |
+| Agent CLI | Claude Code CLI、Codex CLI、Gemini CLI | 進階：用 terminal 跑指令、驗證、整合自動化 |
 
 ## 工具入口
 
 | 工具 | 入口 | 適合誰 |
 |---|---|---|
-| Claude Code | <https://code.claude.com/docs/en/setup> | 想用 Skill、MCP、subagent，把工作流程長期固定下來的人 |
-| OpenAI Codex CLI | <https://developers.openai.com/codex/cli> | 已使用 ChatGPT/OpenAI，想在終端機交辦檔案任務的人 |
-| Gemini CLI | <https://github.com/google-gemini/gemini-cli> | 想用 Gemini 長 context 或 Google 生態的人 |
-| OpenCode | <https://github.com/sst/opencode> | 想使用開源、可換模型的 CLI agent 的人 |
+| Codex app | <https://developers.openai.com/codex/app> | 已使用 ChatGPT/OpenAI，想用桌面 app 選 project folder、Local 模式、review diff 的人 |
+| Claude Code desktop app | <https://code.claude.com/docs/en/overview> | 想用 Claude Code 但不想第一天進 terminal 的人 |
+| Claude Code CLI | <https://code.claude.com/docs/en/setup> | 進階：想用 Skill、MCP、subagent，把工作流程長期固定下來的人 |
+| Codex CLI | <https://developers.openai.com/codex/cli> | 進階：已熟悉 terminal，想用命令列交辦檔案任務的人 |
+| Gemini CLI | <https://github.com/google-gemini/gemini-cli> | 進階：想用 Gemini 長 context 或 Google 生態的人 |
 
 ## 安裝前置觀念
 
-大多數 CLI agent 都需要：
+桌面版 agent 通常只需要安裝 app、登入帳號、選擇 project folder。CLI 則通常需要：
 
 - Terminal：Windows 可用 PowerShell 或 Windows Terminal；macOS/Linux 用 Terminal。
 - Node.js/npm：有些工具用 `npm` 或 `npx` 安裝。
@@ -39,16 +41,15 @@ Agent CLI 是「會動手」的 AI 助手。它不只回答你，還能讀檔、
 
 Node.js 入口：<https://nodejs.org/>
 
-## 最小啟動檢查
+## 新手最小啟動檢查
 
 先選一個工具，不要同一天裝滿全部。建議順序：
 
-1. 到上方表格的官方入口完成安裝與登入。
-2. 打開一個只含測試教材的資料夾。
-3. 在資料夾中建立 `CLAUDE.md` 或 `AGENTS.md`，寫下課程慣例與紅線。
+1. 先用 GitHub Desktop 建立教材副本與第一個 commit。
+2. 安裝並登入 Codex app 或 Claude Code desktop app。
+3. 在 app 中選剛剛的教材資料夾。
 4. 先請工具讀檔，不要改檔。
-
-工作區指令檔的用途是讓 agent 進入資料夾後自動讀到規矩。它不是每次貼在對話開頭的 prompt，而是這個教材 repo 的「助教入職須知」。
+5. 做過幾次任務後，再建立 `AGENTS.md` 或 `CLAUDE.md` 固定長期規矩。
 
 可用這個 prompt 當第一次驗證：
 
@@ -79,29 +80,29 @@ Node.js 入口：<https://nodejs.org/>
 - 使用系統套件管理器安裝 Git、Node.js。
 - 注意不同 distribution 的套件版本可能偏舊。
 
-## 第一次交辦範例
+## 桌面版第一次交辦範例
 
 在一個只有測試資料的資料夾中啟動 agent，先做低風險任務：
 
 ```text
-請閱讀這個資料夾中的 README 與 docs。
-先不要修改檔案。
-請整理：
-1. 這個 repo 的用途
-2. 目前有哪些文件
-3. 哪些地方對新手最難懂
+請先只讀取這個資料夾，不要修改任何檔案，也不要執行會寫入的指令。
+
+請用三段回報：
+1. 這份教材看起來在教什麼
+2. 學生可能卡在哪裡
+3. 如果要改善，你會建議改哪些檔案與原因
 ```
 
 確認它讀對之後，再交辦修改：
 
 ```text
-請新增一段「快速開始」到 README。
+請只新增一段「快速開始」到 README。
 修改前先列出你打算改哪個檔案與改動重點。
 ```
 
 ## 教師任務的標準流程
 
-### 1. 先存檔或建立副本與指令檔
+### 1. 先存檔或建立副本
 
 如果教材已經在 Git repo 中，先確認乾淨狀態：
 
@@ -109,9 +110,13 @@ Node.js 入口：<https://nodejs.org/>
 git status
 ```
 
-如果還沒有 Git，至少先複製一份教材資料夾，不要在唯一版本上練習。接著建立 `CLAUDE.md` 或 `AGENTS.md`，把長期規矩寫進去；本次任務 prompt 只補目標、範圍與驗收標準。
+如果還沒有 Git，至少先複製一份教材資料夾，不要在唯一版本上練習。新手可以先用 GitHub Desktop，不必第一天學 terminal 指令。
 
-### 2. 交規格，不交願望
+### 2. 熟悉後再建立指令檔
+
+做過幾次「只讀、列計畫、小修改、看 diff」後，再建立 `CLAUDE.md` 或 `AGENTS.md`，把長期規矩寫進去；本次任務 prompt 只補目標、範圍與驗收標準。
+
+### 3. 交規格，不交願望
 
 ```text
 目標：請幫我改一份微積分講義，讓偏導數的幾何直觀更清楚。
@@ -123,7 +128,7 @@ git status
 動工前先反問我最多 3 個問題。
 ```
 
-### 3. 先列計畫再改檔
+### 4. 先列計畫再改檔
 
 要求 agent 先回報：
 
@@ -132,7 +137,7 @@ git status
 - 每個檔案改什麼。
 - 如何檢查結果。
 
-### 4. 修改後要看 diff
+### 5. 修改後要看 diff
 
 如果是 Git repo：
 
@@ -149,7 +154,7 @@ git diff
 3. 哪些地方需要我人工確認？
 ```
 
-### 5. 驗證後才 commit / push
+### 6. 驗證後才 commit / push
 
 對應投影片的「觀察 → 動手 → 驗證 → 循環」：
 
@@ -164,14 +169,14 @@ git push
 ## 使用原則
 
 - 一開始只在副本資料夾練習。
-- 長期規矩放在 `CLAUDE.md` / `AGENTS.md`，不要靠每次對話重貼。
+- 第一輪先用單次 prompt；熟悉後再把長期規矩放在 `CLAUDE.md` / `AGENTS.md`。
 - 修改超過 3 個檔案前，要求它先列計畫。
 - 要求它跑驗證，不要只相信它說完成。
 - 重要教材、解答、成績一定人工檢查。
 - 讓 agent 改教材前，先建立 Git 存檔點。
 - 讓 agent 說明 `git diff`，但最後由老師決定是否 commit。
 
-## 什麼時候不要用 CLI agent？
+## 什麼時候不要用 agent？
 
 - 你只要問一句定義。
 - 你不想讓工具碰本機檔案。

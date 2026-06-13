@@ -4,6 +4,8 @@ MCP 是 Model Context Protocol 的縮寫。簡單說，它是一個讓 AI 工具
 
 官方介紹：<https://modelcontextprotocol.io/docs/getting-started/intro>
 
+> 進階提醒：MCP 不是第一天要接的東西。新手先用 NotebookLM 網頁版、GitHub Desktop、Codex app 或 Claude Code desktop app 完成一輪安全流程，再挑一個低風險、會重複的資料來源來接。
+
 ## 用一句話理解
 
 如果 agent 是「會做事的助教」，MCP 就像是幫助教接上工具的插座。接上後，AI 才能透過受控的工具介面讀某個資料庫、查某個服務、操作某個工具；真正的安全仍取決於 server、client 權限與你的設定。
@@ -172,4 +174,4 @@ NotebookLM-py MCP guide 目前列出 25 個工具，範圍包括：
 
 ## 初學者建議
 
-第一天不要急著接 MCP。先把 `CLAUDE.md` / `AGENTS.md`、Git 存檔點與 NotebookLM 網頁版用熟，再挑一個「會重複、低風險」的流程接 MCP。NotebookLM-py MCP 是進階路線，不是零門檻第一步。
+第一天不要急著接 MCP。先把 NotebookLM 網頁版、GitHub Desktop 存檔點、Codex app / Claude Code desktop app 的只讀流程用熟；第二輪再整理 `CLAUDE.md` / `AGENTS.md`；最後才挑一個「會重複、低風險」的流程接 MCP。NotebookLM-py MCP 是進階路線，不是零門檻第一步。
