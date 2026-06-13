@@ -1,0 +1,91 @@
+# AI 教學助攻課後資源
+
+這個 repo 是「AI 教學助攻：備課與教材設計經驗談」的課後資源頁。投影片裡講了很多概念：agent、NotebookLM、GitHub、工作守則、Skill、MCP、subagent、把關流程。這裡把它們整理成可以直接點開、下載、照做的教學入口。
+
+> 核心原則：先用零安裝工具上手，再把常用流程封裝起來。不要一開始就追求全自動。
+
+## 先從哪裡開始？
+
+| 你的狀況 | 建議路線 |
+|---|---|
+| 完全不寫程式，只想讓學生能自學 | 先看 [NotebookLM 教學](docs/02-notebooklm.md) |
+| 想把教材放上 GitHub，給學員直接取用 | 先看 [Git 與 GitHub](docs/04-git-github.md) |
+| 想叫 AI 幫你讀檔、改檔、跑指令 | 先看 [Agent CLI 工具](docs/03-agent-cli.md) |
+| 想讓 AI 每次都遵守你的教學慣例 | 先看 [工作守則與交辦模板](docs/05-工作守則與交辦模板.md) |
+| 已經有固定流程，想封裝成工具箱 | 先看 [Skill 怎麼寫](docs/06-skills.md)、[MCP 怎麼接](docs/07-mcp.md) 與 [Subagent 怎麼用](docs/11-subagents.md) |
+
+## 30 分鐘快速上手
+
+1. 開一個 Google 帳號，進入 [NotebookLM](https://notebooklm.google.com/)。
+2. 建立一個 notebook，上傳一份你可以分享的講義、簡報或 PDF。
+3. 問三個問題：這份講義的重點是什麼？學生最容易卡在哪？請產生 5 題練習題。
+4. 開一個 GitHub 帳號，建立一個空 repo，放一份 `README.md`。
+5. 把本 repo 的 [工作守則模板](docs/05-工作守則與交辦模板.md) 複製到你常用的 AI 工具中，請它「動工前先反問我」。
+
+## 工具總表
+
+### 零安裝網頁 AI
+
+| 工具 | 入口 | 用途 |
+|---|---|---|
+| ChatGPT | <https://chatgpt.com/> | 一次性問答、草擬文字、改寫語氣、產生範例 |
+| Claude.ai | <https://claude.ai/> | 長文閱讀、教材草稿、規格化交辦、寫作修訂 |
+| Gemini | <https://gemini.google.com/> | Google 生態整合、長文件問答、一般對話 |
+| NotebookLM | <https://notebooklm.google.com/> | 把講義、PDF、網址變成有來源引用的課程助教 |
+
+### 會動手的 Agent CLI
+
+| 工具 | 入口 | 用途 |
+|---|---|---|
+| Claude Code | <https://code.claude.com/docs/en/setup> | 讀檔、改檔、跑指令、subagent、Skill、MCP 生態完整 |
+| OpenAI Codex CLI | <https://developers.openai.com/codex/cli> | OpenAI 的本機 coding/agent CLI，可用 ChatGPT 帳號或 API key |
+| Gemini CLI | <https://github.com/google-gemini/gemini-cli> | Google 官方 Gemini 終端機工具，適合長 context 與 Google 生態使用者 |
+| OpenCode | <https://github.com/sst/opencode> | 不綁單一模型供應商的開源 agent CLI |
+
+### 版本控制與發布
+
+| 工具 | 入口 | 用途 |
+|---|---|---|
+| Git | <https://git-scm.com/downloads> | 教材的存檔點與時光機 |
+| GitHub | <https://github.com/> | 放教材、協作、公開課後資源 |
+| GitHub Desktop | <https://desktop.github.com/> | 不熟 terminal 的學員可用圖形介面操作 GitHub |
+| GitHub Pages | <https://docs.github.com/en/pages> | 把教材 repo 變成公開網站 |
+
+### 進階封裝與整合
+
+| 工具/概念 | 入口 | 用途 |
+|---|---|---|
+| Claude Code Skills | <https://code.claude.com/docs/en/skills> | 把常用教學流程封裝成可重複使用的工作手冊 |
+| Codex Skills | <https://developers.openai.com/codex/skills> | 在 Codex 裡封裝可觸發的操作流程 |
+| MCP | <https://modelcontextprotocol.io/docs/getting-started/intro> | 讓 AI 工具接外部資料與服務的標準接口 |
+| Subagent | [subagent 教學](docs/11-subagents.md) | 把大搜尋、審查、對照檢查交給獨立 context 的助理 |
+| NotebookLM-py | <https://github.com/teng-lin/notebooklm-py> | 非官方 NotebookLM Python API / CLI / MCP / Skill，適合進階自動化 |
+| awesome-agentic-ai-zh | <https://github.com/WenyuChiou/awesome-agentic-ai-zh> | 中文 AI agent 學習地圖與資源庫 |
+| Claude Code Workspace Docs | <https://zeuikli.github.io/cc-workspace-docs/> | Claude Code 工作區與設定相關中文文件 |
+
+## 這場投影片對應的資源
+
+| 投影片概念 | 對應教學 |
+|---|---|
+| 別給願望，給規格 | [工作守則與交辦模板](docs/05-工作守則與交辦模板.md) |
+| 讓它先反問你 | [工作守則與交辦模板](docs/05-工作守則與交辦模板.md#讓-ai-先反問你) |
+| 給目錄，不要全文硬塞 | [NotebookLM 教學](docs/02-notebooklm.md) |
+| 快取索引 | [NotebookLM-py 與進階自動化](docs/08-notebooklm-py.md) |
+| Agent 會讀檔、改檔、跑程式 | [Agent CLI 工具](docs/03-agent-cli.md) |
+| Git 是教材時光機 | [Git 與 GitHub](docs/04-git-github.md) |
+| 把流程封裝成工具箱 | [Skill 怎麼寫](docs/06-skills.md) |
+| AI 接外部工具 | [MCP 怎麼接](docs/07-mcp.md) |
+| 請它派分身去查 | [Subagent 怎麼用](docs/11-subagents.md) |
+| 漂亮不等於正確 | [把關與安全](docs/09-把關與安全.md) |
+| 投影片與公開範例 | [投影片與延伸資源](docs/10-投影片與延伸資源.md) |
+
+## 重要安全提醒
+
+- 不要上傳學生姓名、學號、成績、聯絡方式或可辨識個資。
+- 不要把未授權分享的教材、書籍 PDF、學生作業公開放到 GitHub。
+- AI 產生的答案、解答、反例、引用都要人工抽查。
+- 對關鍵內容，不要只問「這樣對嗎？」請改問「請挑出錯誤、反例、缺漏與需要人工確認的地方」。
+
+## License
+
+本 repo 內容以 MIT License 釋出。若你放入課程講義、投影片或截圖，請另外確認那些素材本身的授權。
