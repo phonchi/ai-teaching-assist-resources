@@ -77,7 +77,7 @@
 | Codex Skills | <https://developers.openai.com/codex/skills> | 進階：在 Codex 裡封裝可觸發的操作流程 |
 | MCP | <https://modelcontextprotocol.io/docs/getting-started/intro> | 進階：把外部資料與服務接進 agent；第一天先不用設定 |
 | Subagent | [subagent 教學](docs/11-subagents.md) | 進階：主 agent 需要大量搜尋、審查、對照時可安排獨立 context |
-| NotebookLM-py | <https://github.com/teng-lin/notebooklm-py> | 非官方 NotebookLM Python API / CLI / MCP / Skill，適合進階自動化 |
+| NotebookLM-py | <https://github.com/teng-lin/notebooklm-py> | 非官方 NotebookLM Python API / CLI / Skill，適合進階自動化 |
 | awesome-agentic-ai-zh | <https://github.com/WenyuChiou/awesome-agentic-ai-zh> | 中文 AI agent 學習地圖與資源庫 |
 | Claude Code Workspace Docs | <https://zeuikli.github.io/cc-workspace-docs/> | Claude Code 工作區與設定相關中文文件 |
 
@@ -94,7 +94,7 @@
 | Agent 會讀檔、改檔、跑程式 | [Agent 桌面版與 CLI 工具](docs/03-agent-cli.md) |
 | Git 是教材時光機，也是 agent 協作安全網 | [Git 與 GitHub](docs/04-git-github.md) |
 | 把反覆摩擦封裝成工具箱 | 請主 agent 先整理流程，再看 [Skill 怎麼和 agent 合作寫](docs/06-skills.md) |
-| Agent 接外部工具，包含接 NotebookLM | 先知道可以這樣做；設定細節見 [MCP 怎麼接](docs/07-mcp.md) |
+| Agent 接外部工具 | 先知道可以這樣做；設定細節見 [MCP 怎麼接](docs/07-mcp.md)。NotebookLM 目前先走網頁版或 NotebookLM-py CLI/Skill |
 | 需要獨立審查或大量查找 | 對主 agent 提需求，細節見 [Subagent 怎麼用](docs/11-subagents.md) |
 | 漂亮不等於正確 | [把關與安全](docs/09-把關與安全.md) |
 | `/insights` 與精進迴圈 | [工作區指令檔與交辦模板](docs/05-工作守則與交辦模板.md#回顧用法與-insights) |

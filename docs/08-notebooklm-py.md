@@ -1,6 +1,6 @@
 # 08 NotebookLM-py 與進階自動化
 
-[teng-lin/notebooklm-py](https://github.com/teng-lin/notebooklm-py) 是一個非官方 NotebookLM Python API / CLI / agent skill / MCP server 專案。它可以把 NotebookLM 從網頁操作延伸到程式化、自動化與 agent 整合。
+[teng-lin/notebooklm-py](https://github.com/teng-lin/notebooklm-py) 是一個非官方 NotebookLM Python API / CLI / agent skill 專案。它可以把 NotebookLM 從網頁操作延伸到程式化、自動化與 agent 整合。
 
 > 注意：這不是 Google 官方 API。NotebookLM 內部機制若改變，這類非官方工具可能失效。初學者先用 NotebookLM 網頁版即可；NotebookLM-py 是熟悉桌面版 agent 與基本安全流程後才評估的進階路線。
 
@@ -10,7 +10,6 @@
 - 已經有會重複的 NotebookLM 查詢流程。
 - 願意處理 CLI、Python、登入與權限等設定細節。
 - 想把 NotebookLM 接到 Claude Code、Codex 或其他 agent workflow。
-- 想用 MCP server 讓 agent 查 NotebookLM 中的資料。
 
 ## 不適合誰？
 
@@ -18,13 +17,12 @@
 - 不熟 Python、terminal、OAuth 或 CLI 的使用者。
 - 要處理學生個資或敏感資料的人。
 
-## 三種主要用法
+## 兩種主要用法
 
 | 用法 | 適合誰 | 說明 |
 |---|---|---|
 | CLI | 熟悉 terminal 後再用 | 在 terminal 中建立 notebook、加 source、問答、產生 artifacts |
 | Skill | 主 agent 草擬、老師審內容 | 讓 agent 知道如何用 NotebookLM-py 完成固定流程 |
-| MCP server | 進階設定 | 讓 Claude Code、Claude Desktop、Cursor、Windsurf 等 MCP client 直接呼叫 NotebookLM 工具 |
 
 ## 老師實際該怎麼說
 
@@ -36,7 +34,7 @@
 不要直接連正式課程資料。
 ```
 
-## 進階設定參考
+## 進階 CLI 設定參考
 
 這段是主 agent 評估 NotebookLM-py 後才看的技術參考，不是要求第一次工作坊的學員照著輸入。老師的工作是先確認目標、測試資料與權限風險。
 
@@ -48,29 +46,9 @@ notebooklm login
 notebooklm auth check --test --json
 ```
 
-MCP 起手：
+多 Google 帳號使用者請先確認 NotebookLM-py 的 active profile，避免 agent 接到個人帳號或錯誤課程資料。
 
-```bash
-pip install "notebooklm-py[mcp]"
-notebooklm login
-notebooklm mcp install claude-code
-```
-
-也可用 `uvx` 啟動 MCP server：
-
-```bash
-uvx --from "notebooklm-py[mcp]" notebooklm-mcp --help
-```
-
-若主 agent 判斷採用 `uvx`，也可以評估下面的 MCP 設定指令：
-
-```bash
-uvx --from "notebooklm-py[mcp]" notebooklm mcp install claude-code
-```
-
-`uvx` 與自動產生的 MCP 設定都需要電腦上有 `uv`。多 Google 帳號使用者請先確認 NotebookLM-py 的 active profile，避免 agent 接到個人帳號或錯誤課程資料。
-
-更多 MCP 細節請看 [MCP 怎麼接](07-mcp.md#例子用-notebooklm-py-把-notebooklm-接進-agent)。
+目前本機實測 `notebooklm-py 0.7.1` 沒有 MCP 子命令或 MCP server 可執行入口；所以這頁不再提供 NotebookLM-py MCP 設定。
 
 ## 建議導入順序
 
@@ -79,7 +57,7 @@ uvx --from "notebooklm-py[mcp]" notebooklm mcp install claude-code
 3. 請主 agent 評估是否真的需要 NotebookLM-py。
 4. 若需要，再閱讀 NotebookLM-py README：<https://github.com/teng-lin/notebooklm-py>。
 5. 只在測試 notebook 上嘗試 CLI 或 Python。
-6. 確認登入、權限、輸出都符合預期後，再考慮接入 Codex app、Claude Code desktop app 或其他 agent。
+6. 確認登入、權限、輸出都符合預期後，再考慮如何讓 Codex app、Claude Code desktop app 或其他 agent 協助使用 CLI 結果。
 
 ## 跟投影片「快取索引」的關係
 
@@ -94,7 +72,7 @@ NotebookLM-py 屬於第二條路。它不是必要起點，但適合想把教學
 
 ```text
 NotebookLM notebook 保存講義與考古題
-NotebookLM-py MCP 讓 agent 查 notebook
+NotebookLM-py CLI 產生或查詢測試 notebook 的結果
 agent 根據查詢結果產生小考草稿
 Git 保存這次教材修改
 老師人工檢查解答與題目範圍
@@ -107,5 +85,4 @@ Git 保存這次教材修改
 - 不要用非官方工具處理學生個資或成績。
 - 不要把高權限帳號拿來做測試。
 - 不要把 OAuth token、cookie、API key commit 到 GitHub。尤其不要 commit `~/.notebooklm/` 或 `storage_state.json`，那裡可能含有 Google session cookies。
-- 若用 MCP server，先確認權限範圍與可執行操作。
 - 先從 read-only 問答開始，不要第一天就讓 agent 刪 notebook、source 或 note。
