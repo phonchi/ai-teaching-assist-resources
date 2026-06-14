@@ -61,10 +61,9 @@ MCP 是 Model Context Protocol 的縮寫。簡單說，它是一個讓 AI 工具
 
 本機實測 `notebooklm-py 0.7.1` 時，CLI help 沒有 MCP 群組，也沒有可用的 MCP server console script。因此本 repo 不再把 NotebookLM-py 寫成 MCP server 接法。
 
-NotebookLM 目前建議保留兩條路：
+NotebookLM 目前建議先保留網頁版路線：
 
 - 零門檻：用 NotebookLM 網頁版上傳講義、問答、產生學習指南。
-- 進階：用 [NotebookLM-py](08-notebooklm-py.md) 的 CLI / Skill 路線處理測試 notebook，但不要把它當成 MCP 設定教學。
 
 ## 其他可接的 MCP 資源
 
