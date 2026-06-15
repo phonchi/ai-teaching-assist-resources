@@ -13,7 +13,7 @@
 | 老師 / 學員 | 說清楚教學目標、提供教材副本、檢查結果、決定是否存檔或發布 |
 | 主 agent | 讀檔、列計畫、修改副本、摘要差異；需要時自己安排獨立審查或整理流程 |
 
-所以看到 Skill、MCP、subagent 的技術範例時，不代表每位老師都要自己照著輸入。一般使用者只需要知道：可以對主 agent 說出需求；如果某個功能需要額外設定，第一天先跳過。
+所以看到 Skill、MCP、subagent 的技術範例時，不代表每位老師都要自己照著輸入。一般使用者只需要知道：可以對主 agent 說出需求；如果某個功能需要額外設定，先跳過，熟悉後再評估。
 
 ## 先從哪裡開始？
 
@@ -75,7 +75,7 @@
 |---|---|---|
 | Claude Code Skills | <https://code.claude.com/docs/en/skills> | 進階：讓 agent 把固定流程封裝成工作手冊 |
 | Codex Skills | <https://developers.openai.com/codex/skills> | 進階：在 Codex 裡封裝可觸發的操作流程 |
-| MCP | <https://modelcontextprotocol.io/docs/getting-started/intro> | 進階：把外部資料與服務接進 agent；第一天先不用設定 |
+| MCP | <https://modelcontextprotocol.io/docs/getting-started/intro> | 進階：把外部資料與服務接進 agent；一開始先不用設定 |
 | Subagent | [subagent 教學](docs/11-subagents.md) | 進階：主 agent 需要大量搜尋、審查、對照時可安排獨立 context |
 | NotebookLM-py | <https://github.com/teng-lin/notebooklm-py> | 非官方 NotebookLM Python API / CLI / Skill，適合進階自動化 |
 | awesome-agentic-ai-zh | <https://github.com/WenyuChiou/awesome-agentic-ai-zh> | 中文 AI agent 學習地圖與資源庫 |

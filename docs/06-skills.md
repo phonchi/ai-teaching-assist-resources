@@ -2,13 +2,13 @@
 
 Skill 可以想成「可重複使用的工作手冊」。重點不是老師自己從零寫一份工程文件，而是你和主 agent 合作幾次後，請主 agent 把已經跑順、或反覆卡住的流程整理成 Skill 草稿，再由老師審查內容。是否安裝成真正 Skill，等熟悉基本流程後再處理。
 
-> 進階提醒：Skill 不是第一天要做的事，也不是每位老師要手寫的檔案。老師只需要指出「哪個流程一直卡住」；主 agent 可以先整理草稿，是否安裝等熟悉後再決定。
+> 進階提醒：Skill 不是一開始要做的事，也不是每位老師要手寫的檔案。老師只需要指出「哪個流程一直卡住」；主 agent 可以先整理草稿，是否安裝等熟悉後再決定。
 
 投影片中的說法是：把跑順的流程變成「實驗室手冊」。以後遇到同類任務，agent 不必每次重新理解你的偏好，而是直接套用這份手冊。
 
 ## 什麼時候該寫 Skill？
 
-不要第一天就寫 Skill。先用單次 prompt 與桌面版 agent 跑幾次安全任務，再請主 agent 幫你整理 `CLAUDE.md` / `AGENTS.md` 草稿固定全域規矩，最後才考慮把反覆摩擦的流程封裝成 Skill。適合封裝的時機：
+不要一開始就寫 Skill。先用單次 prompt 與桌面版 agent 跑幾次安全任務，再請主 agent 幫你整理 `CLAUDE.md` / `AGENTS.md` 草稿固定全域規矩，最後才考慮把反覆摩擦的流程封裝成 Skill。適合封裝的時機：
 
 - 同一類任務已經做了 2-3 次，例如 A/B 版小考、講義審查、互動教材轉 PDF。
 - 對話中一直出現摩擦，例如 agent 忘記先問、改太多檔、漏驗算、A/B 版難度不一致。
@@ -153,7 +153,7 @@ description: Use when creating or reviewing A/B quiz versions, answer keys, or p
 - Do not publish or push files without explicit teacher confirmation.
 ```
 
-老師審過草稿後，再決定是否要安裝成真正 Skill；第一天只要保留草稿即可。
+老師審過草稿後，再決定是否要安裝成真正 Skill；一開始只要保留草稿即可。
 
 ## Skill 跟工作守則的差別
 

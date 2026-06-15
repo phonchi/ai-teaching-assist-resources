@@ -36,7 +36,7 @@
 
 ## 進階 CLI 設定參考
 
-這段是主 agent 評估 NotebookLM-py 後才看的技術參考，不是要求第一次工作坊的學員照著輸入。老師的工作是先確認目標、測試資料與權限風險。
+這段是主 agent 評估 NotebookLM-py 後才看的技術參考，不是要求本場演講的聽眾照著輸入。老師的工作是先確認目標、測試資料與權限風險。
 
 CLI 起手：
 
@@ -85,4 +85,4 @@ Git 保存這次教材修改
 - 不要用非官方工具處理學生個資或成績。
 - 不要把高權限帳號拿來做測試。
 - 不要把 OAuth token、cookie、API key commit 到 GitHub。尤其不要 commit `~/.notebooklm/` 或 `storage_state.json`，那裡可能含有 Google session cookies。
-- 先從 read-only 問答開始，不要第一天就讓 agent 刪 notebook、source 或 note。
+- 先從 read-only 問答開始，不要一開始就讓 agent 刪 notebook、source 或 note。
